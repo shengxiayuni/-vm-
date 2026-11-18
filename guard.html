@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保护扩展 · 下载</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l10 4v9c0 7-4.6 11.6-10 13-5.4-1.4-10-6-10-13V7z' fill='%23B23A2E'/%3E%3Cpath d='M11 16l3.6 3.6L21 13' stroke='%23EDE9E1' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--paper:#EDE9E1;--ink:#1A1A17;--ink-2:#4A4740;--ink-3:#7A7568;--rule:rgba(26,26,23,.16);--rule-strong:rgba(26,26,23,.4);--red:#B23A2E;--red-soft:rgba(178,58,46,.1);--sea:#235A55;
+--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;--serif:"Noto Serif SC","Songti SC",serif;--sans:"Noto Sans SC","PingFang SC",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75;
+background-image:linear-gradient(90deg,rgba(26,26,23,.035) 1px,transparent 1px),linear-gradient(rgba(26,26,23,.035) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:860px;margin:0 auto;padding:0 40px 80px}
+@media (max-width:760px){.wrap{padding:0 18px 48px}}
+header{border-bottom:2px solid var(--ink);padding:30px 0 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.brand{display:flex;gap:14px;align-items:flex-start}
+.seal{width:54px;height:54px;flex:0 0 54px;border:2px solid var(--red);display:grid;place-items:center;color:var(--red);font-family:var(--serif);font-weight:900;font-size:24px;transform:rotate(-3deg)}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.15}
+.sub{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-3);margin-top:7px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--rule-strong);padding:6px 12px;font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.35)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--sea);box-shadow:0 0 0 3px rgba(35,90,85,.14)}
+.dot.bad{background:var(--red);box-shadow:0 0 0 3px rgba(178,58,46,.16)}
+.meta{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:7px;text-align:right}
+section{padding-top:46px}
+.head{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;border-top:1px solid var(--rule-strong);padding-top:12px;margin-bottom:22px}
+.num{font-family:var(--mono);font-size:10.5px;color:var(--red)}
+h2{font-family:var(--serif);font-size:clamp(18px,2.2vw,24px);font-weight:700}
+.dl{display:block;border:1px solid var(--ink);text-decoration:none;color:var(--ink);background:rgba(255,255,255,.45);padding:26px 28px;transition:background .16s}
+.dl:hover{background:var(--red-soft)}
+.dl:focus-visible{outline:2px solid var(--red);outline-offset:-4px}
+.dl .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--ink-3)}
+.dl .v{display:block;font-family:var(--serif);font-size:clamp(22px,3vw,30px);font-weight:700;margin:4px 0 8px}
+.dl .u{font-family:var(--mono);font-size:12px;color:var(--ink-2);word-break:break-all}
+.addr{margin-top:14px;border:1px solid var(--rule-strong);background:rgba(255,255,255,.5);display:grid;grid-template-columns:96px 1fr auto;align-items:center}
+.addr .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink-3);padding:10px 12px;border-right:1px solid var(--rule)}
+.addr .val{font-family:var(--mono);font-size:12.5px;padding:9px 10px;word-break:break-all}
+.addr button{border:0;border-left:1px solid var(--rule-strong);background:transparent;padding:10px 16px;font-size:12px;cursor:pointer;color:var(--ink-2)}
+.addr button:hover{background:var(--ink);color:var(--paper)}
+.addr button:focus-visible{outline:2px solid var(--red);outline-offset:-3px}
+.steps{display:grid;border-top:1px solid var(--rule);margin-top:6px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--rule)}
+.step-n{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.step h3{font-size:14.5px;font-weight:700;margin-bottom:2px}
+.step p{color:var(--ink-2);font-size:13.4px}
+code{font-family:var(--mono);font-size:.92em;background:rgba(26,26,23,.06);padding:1px 5px;border:1px solid var(--rule)}
+.note{border-left:3px solid var(--sea);background:rgba(35,90,85,.08);padding:12px 16px;margin-top:16px;font-size:12.8px;color:var(--ink-2)}
+footer{margin-top:54px;border-top:2px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="seal" aria-hidden="true">护</div>
+    <div>
+      <h1>保护扩展</h1>
+      <div class="sub">GUARD EXTENSION · DOWNLOAD</div>
+    </div>
+  </div>
+  <div>
+    <span class="chip"><span class="dot" id="dot"></span><span id="statusText">检测中</span></span>
+    <div class="meta" id="meta">vmguard.js</div>
+  </div>
+</header>
+
+<section>
+  <div class="head"><span class="num">01</span><h2>下载</h2></div>
+  <a class="dl" href="/vmguard.js" download="vmguard.js">
+    <span class="k">VMGUARD · SINGLE FILE</span>
+    <span class="v">下载 vmguard.js</span>
+    <span class="u">http://127.0.0.1:8765/vmguard.js</span>
+  </a>
+  <div class="addr">
+    <span class="lbl">安装地址</span>
+    <span class="val" id="installAddr">http://127.0.0.1:8765/vmguard.js</span>
+    <button type="button" id="copyBtn">复制</button>
+  </div>
+  <div class="note">这个地址同时用于下载和 CCW 加载；扩展更新后地址不变，重新加载时加 <code>?v=41</code> 避免缓存。</div>
+</section>
+
+<section>
+  <div class="head"><span class="num">02</span><h2>装进 CCW</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-n">STEP 01</div><div><h3>打开扩展库</h3><p>CCW 编辑器左侧扩展库 → 自定义扩展 → 加载自定义扩展。</p></div></div>
+    <div class="step"><div class="step-n">STEP 02</div><div><h3>粘贴地址</h3><p>输入 <code>http://127.0.0.1:8765/vmguard.js</code>，确认后积木区出现「保护扩展」。</p></div></div>
+    <div class="step"><div class="step-n">STEP 03</div><div><h3>开局调用</h3><p>绿旗第一块放「进行扩展检测」，通过后再广播开局。</p></div></div>
+  </div>
+</section>
+
+<footer><span>vmguard · 保护扩展</span><span>单文件 · 无需 GitHub</span></footer>
+</div>
+
+<script>
+(function(){
+  var dot=document.getElementById('dot'),st=document.getElementById('statusText'),mt=document.getElementById('meta');
+  var addr=document.getElementById('installAddr'),btn=document.getElementById('copyBtn');
+  function check(){
+    fetch('/vmguard.js?t='+Date.now(),{cache:'no-store'})
+      .then(function(res){if(!res.ok)throw new Error(res.status);return res.text();})
+      .then(function(body){dot.classList.remove('bad');st.textContent='在线';mt.textContent='served '+body.length+' bytes';})
+      .catch(function(){dot.classList.add('bad');st.textContent='离线';mt.textContent='本地服务未启动';});
+  }
+  function copy(){
+    var t=addr.textContent.trim(),done=function(){btn.textContent='已复制';setTimeout(function(){btn.textContent='复制';},1500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){fb(done);});}else{fb(done);}
+  }
+  function fb(done){var ta=document.createElement('textarea');ta.value=addr.textContent.trim();ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}ta.remove();done();}
+  btn.addEventListener('click',copy);
+  check();setInterval(check,8000);
+})();
+</script>
+</body>
+</html>
